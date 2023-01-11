@@ -1,0 +1,47 @@
+<div class="my-page-content">
+  <h1>設定</h1>
+
+  <% if flash.now[:alert] %>
+    <p class="alert"><%= flash.now[:alert] %></p>
+  <% end %>
+
+  <%= render "shared/error", obj: @user %>
+
+  <div class="my-page-navigator">
+    <ul>
+      <li><%= link_to "アカウント", account_path(@user) %></li>
+      <li>プロフィール</li>
+    </ul>
+  </div>
+
+  <div class="my-page-content-main">
+    <div class="my-page-content-main-header">
+      <h2>アカウント</h2>
+    </div>
+
+    <%= form_with model: @user, url: account_path do |f| %>
+      <table>
+        <tbody>
+          <tr>
+            <th><label for="user_email">メールアドレス</label></th>
+            <td><%= f.text_field :email, placeholder: "メールアドレスを入力してください"%></td>
+          </tr>
+          <tr>
+            <th><label for="user_password">変更後パスワード</label></th>
+            <td><%= f.text_field :password, placeholder: "変更後パスワードを入力してください"%></td>
+          </tr>
+          <tr>
+            <th><label for="user_password_confirmation">確認用パスワード</label></th>
+            <td><%= f.text_field :password_confirmation, placeholder: "変更後パスワードを入力してください"%></td>
+          </tr>
+          <tr>
+            <th><label for="user_password_current">現在のパスワード</label></th>
+            <td><%= f.text_field :password_current, placeholder: "現在のパスワードを入力してください"%></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to "キャンセル", account_path(@user) %>
+      <%= f.submit "保存" %>
+    <% end %>
+  </div>
+</div>

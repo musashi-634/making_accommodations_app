@@ -1,0 +1,20 @@
+<div class="create-account-content">
+  <h1>新規登録</h1>
+
+  <% if flash.now[:alert] %>
+    <p class="alert"><%= flash.now[:alert] %></p>
+  <% end %>
+
+  <%= render "shared/error", obj: @user %>
+
+  <%= form_with model: @user do |f| %>
+    <ul>
+      <li><%= f.text_field :name, placeholder: "ユーザ名" %></li>
+      <li><%= f.text_field :email, placeholder: "メールアドレス" %></li>
+      <li><%= f.text_field :password, placeholder: "パスワード" %></li>
+      <li><%= f.text_field :password_confirmation, placeholder: "確認用パスワード" %></li>
+    </ul>
+    <%= f.submit "新しいアカウントを作成" %>
+    <p>すでにアカウントをお持ちの方はログイン</p>
+  <% end %>
+</div>
