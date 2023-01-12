@@ -3,10 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  get 'users/sign_up', to: 'users#new'
-  post 'users', to: 'users#create'
-  get 'users/:id', to: 'users#show', as: 'account'
-  get 'users/:id/edit', to: 'users#edit', as: 'edit_account'
-  patch 'users/:id', to: 'users#update', as: 'update_account'
-  put 'users/:id', to: 'users#update'
+  resources :users, except: %i[index destroy], path_names: { new: 'sign_up' } do
+    resource :profile, only: %i[show edit update], controller: 'users/profiles'
+  end
 end

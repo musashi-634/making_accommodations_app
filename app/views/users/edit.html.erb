@@ -9,8 +9,8 @@
 
   <div class="my-page-navigator">
     <ul>
-      <li><%= link_to "アカウント", account_path(@user) %></li>
-      <li>プロフィール</li>
+      <li><%= link_to "アカウント", user_path(@user) %></li>
+      <li><%= link_to "プロフィール", user_profile_path(@user) %></li>
     </ul>
   </div>
 
@@ -19,7 +19,7 @@
       <h2>アカウント</h2>
     </div>
 
-    <%= form_with model: @user, url: account_path do |f| %>
+    <%= form_with model: @user do |f| %>
       <table>
         <tbody>
           <tr>
@@ -40,7 +40,7 @@
           </tr>
         </tbody>
       </table>
-      <%= link_to "キャンセル", account_path(@user) %>
+      <%= link_to "キャンセル", user_path(@user) %>
       <%= f.submit "保存" %>
     <% end %>
   </div>

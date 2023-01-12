@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
     if @user.save
       flash[:notice] = 'ユーザを新規登録しました'
-      redirect_to account_path(@user)
+      redirect_to user_path(@user)
     else
       flash.now[:alert] = 'ユーザを新規登録できませんでした'
       render 'new'
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(params.require(:user).permit(:email, :password, :password_confirmation, :password_current))
       flash[:notice] = 'アカウントを更新しました'
-      redirect_to account_path(@user)
+      redirect_to user_path(@user)
     else
       flash.now[:alert] = 'アカウントを更新できませんでした'
       render 'edit'

@@ -7,15 +7,15 @@
 
   <div class="my-page-navigator">
     <ul>
-      <li><%= link_to "アカウント", account_path(@user) %></li>
-      <li>プロフィール</li>
+      <li><%= link_to "アカウント", user_path(@user) %></li>
+      <li><%= link_to "プロフィール", user_profile_path(@user) %></li>
     </ul>
   </div>
 
   <div class="my-page-content-main">
     <div class="my-page-content-main-header">
       <h2>アカウント</h2>
-      <%= link_to "編集", edit_account_path(@user) %>
+      <%= link_to "編集", edit_user_path(@user) %>
     </div>
 
     <table>
