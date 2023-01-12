@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   validates :password, length: { minimum: 6 }, allow_blank: true
   has_secure_password # BCryptのメソッド。属性の追加や、"password"のハッシュ化、バリデーションなどを行う。
-  with_options on: :update do
+  with_options on: :account_update do
     validates :password_current, presence: true
     validate :authenticate_current_password
   end

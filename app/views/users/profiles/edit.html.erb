@@ -1,0 +1,43 @@
+<div class="my-page-content">
+  <h1>設定</h1>
+
+  <% if flash.now[:alert] %>
+    <p class="alert"><%= flash.now[:alert] %></p>
+  <% end %>
+
+  <%= render "shared/error", obj: @user %>
+
+  <div class="my-page-navigator">
+    <ul>
+      <li><%= link_to "アカウント", user_path(@user) %></li>
+      <li><%= link_to "プロフィール", user_profile_path(@user) %></li>
+    </ul>
+  </div>
+
+  <div class="my-page-content-main">
+    <div class="my-page-content-main-header">
+      <h2>プロフィール</h2>
+    </div>
+
+    <%= form_with model: @user, url: user_profile_path do |f| %>
+      <table>
+        <tbody>
+          <tr>
+            <th><label for="user_icon">アイコン</label></th>
+            <td><%= f.text_field :icon, placeholder: "アイコンを入力してください"%></td>
+          </tr>
+          <tr>
+            <th><label for="user_name">ユーザ名</label></th>
+            <td><%= f.text_field :name, placeholder: "ユーザ名を入力してください"%></td>
+          </tr>
+          <tr>
+            <th><label for="user_introduction">自己紹介</label></th>
+            <td><%= f.text_field :introduction, placeholder: "自己紹介を入力してください"%></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to "キャンセル", user_profile_path(@user) %>
+      <%= f.submit "保存" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="my-page-content">
+  <h1>設定</h1>
+
+  <% if flash[:notice] %>
+    <p class="notice"><%= flash[:notice] %></p>
+  <% end %>
+
+  <div class="my-page-navigator">
+    <ul>
+      <li><%= link_to "アカウント", user_path(@user) %></li>
+      <li><%= link_to "プロフィール", user_profile_path(@user) %></li>
+    </ul>
+  </div>
+
+  <div class="my-page-content-main">
+    <div class="my-page-content-main-header">
+      <h2>プロフィール</h2>
+      <%= link_to "編集", edit_user_profile_path(@user) %>
+    </div>
+
+    <table>
+      <tbody>
+        <tr>
+          <th>アイコン</th>
+          <td><%= @user.icon %></td>
+        </tr>
+        <tr>
+          <th>ユーザ名</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th>自己紹介</th>
+          <td><%= @user.introduction %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
