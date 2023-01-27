@@ -20,6 +20,12 @@ class User < ApplicationRecord
     validate :authenticate_current_password
   end
 
+  # avatar
+  has_one_attached :avatar
+  validates :avatar, content_type: { in: %w[image/jpeg image/gif image/png],
+                                     message: 'は有効なフォーマットではありません' },
+                     size: { less_than: 1.megabytes, message: 'のファイルサイズを1MBより小さくしてください' }
+
   private
 
   # 現在のパスワードをDBの値と照合する

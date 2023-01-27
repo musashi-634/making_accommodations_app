@@ -9,10 +9,12 @@ class Users::ProfilesController < ApplicationController
 
   def update
     @user = User.find(params[:user_id])
-    if @user.update(params.require(:user).permit(:name, :icon, :introduction))
+    if @user.update(params.require(:user).permit(:avatar, :name, :introduction))
+      @user.avatar.purge if params[:user][:avatar_request_delete]
       flash[:notice] = 'プロフィールを更新しました'
       redirect_to user_profile_path(@user)
     else
+      @user.avatar = nil if @user.errors[:avatar]
       flash.now[:alert] = 'プロフィールを更新できませんでした'
       render 'edit'
     end

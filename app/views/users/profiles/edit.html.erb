@@ -23,16 +23,27 @@
       <table>
         <tbody>
           <tr>
-            <th><label for="user_icon">アイコン</label></th>
-            <td><%= f.text_field :icon, placeholder: "アイコンを入力してください"%></td>
+            <th><label for="user_avatar">アイコン</label></th>
+            <td>
+              <% if @user.avatar.attached? %>
+                <%= image_tag @user.avatar.variant(resize: '100x100^', gravity: "center", crop: "100x100+0+0").processed, class: 'avatar' %>
+              <% else %>
+                <%= image_tag 'default_avatar', size: '100x100', class: 'avatar' %>
+              <% end %>
+
+              <%= f.label :avatar_request_delete, '削除' %>
+              <%= f.check_box :avatar_request_delete, {}, true, false %>
+
+              <%= f.file_field :avatar %>
+            </td>
           </tr>
           <tr>
             <th><label for="user_name">ユーザ名</label></th>
-            <td><%= f.text_field :name, placeholder: "ユーザ名を入力してください"%></td>
+            <td><%= f.text_field :name, placeholder: "ユーザ名を入力してください" %></td>
           </tr>
           <tr>
             <th><label for="user_introduction">自己紹介</label></th>
-            <td><%= f.text_field :introduction, placeholder: "自己紹介を入力してください"%></td>
+            <td><%= f.text_field :introduction, placeholder: "自己紹介を入力してください" %></td>
           </tr>
         </tbody>
       </table>
