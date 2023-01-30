@@ -15,6 +15,6 @@
       <li><%= f.text_field :password_confirmation, placeholder: "確認用パスワード" %></li>
     </ul>
     <%= f.submit "新しいアカウントを作成" %>
-    <p>すでにアカウントをお持ちの方はログイン</p>
+    <p><%= link_to "すでにアカウントをお持ちの方はログイン", login_path %></p>
   <% end %>
 </div>

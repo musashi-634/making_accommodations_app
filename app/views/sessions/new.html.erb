@@ -1,0 +1,15 @@
+<h1>ログイン</h1>
+
+<%= form_with model: @user, url: login_path, scope: :session do |f| %>
+  <% if flash.now[:alert] %>
+    <p class="alert"><%= flash.now[:alert] %></p>
+  <% end %>
+
+  <%= f.label :email, 'メールアドレス' %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password, 'パスワード' %>
+  <%= f.text_field :password %>
+
+  <%= f.submit 'ログイン' %>
+<% end %>

@@ -21,8 +21,14 @@
               <p>キーワード</p>
             </div>
             <div class="header-content-right">
-              <p>ログイン</p>
-              <%= link_to "新規登録", new_user_path %>
+              <% if logged_in? %>
+                <%= image_tag current_user.avatar.variant(resize: '50x50^', gravity: "center", crop: "50x50+0+0").processed, class: 'avatar' %>
+                <%= current_user.name %>
+                <%= link_to "ログアウト", logout_path, method: :delete %>
+              <% else %>
+                <%= link_to "ログイン", login_path %>
+                <%= link_to "新規登録", new_user_path %>
+              <% end %>
             </div>
           </div>
         </div>

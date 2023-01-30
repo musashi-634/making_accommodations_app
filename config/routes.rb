@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   resources :users, except: %i[index destroy], path_names: { new: 'sign_up' } do
     resource :profile, only: %i[show edit update], controller: 'users/profiles'
   end
+
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 end

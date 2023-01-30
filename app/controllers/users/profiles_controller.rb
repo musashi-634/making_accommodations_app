@@ -1,4 +1,6 @@
 class Users::ProfilesController < ApplicationController
+  before_action :require_login, only: %i[show edit]
+
   def show
     @user = User.find(params[:user_id])
   end
