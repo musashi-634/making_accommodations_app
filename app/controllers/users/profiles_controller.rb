@@ -1,22 +1,17 @@
 class Users::ProfilesController < ApplicationController
   before_action :require_login, only: %i[show edit]
 
-  def show
-    @user = User.find(params[:user_id])
-  end
+  def show; end
 
-  def edit
-    @user = User.find(params[:user_id])
-  end
+  def edit; end
 
   def update
-    @user = User.find(params[:user_id])
-    if @user.update(params.require(:user).permit(:avatar, :name, :introduction))
-      @user.avatar.purge if params[:user][:avatar_request_delete]
+    if current_user.update(params.require(:user).permit(:avatar, :name, :introduction))
+      current_user.avatar.purge if params[:user][:avatar_request_delete]
       flash[:notice] = 'プロフィールを更新しました'
-      redirect_to user_profile_path(@user)
+      redirect_to user_profile_path
     else
-      @user.avatar = nil if @user.errors[:avatar]
+      current_user.avatar = nil if current_user.errors[:avatar]
       flash.now[:alert] = 'プロフィールを更新できませんでした'
       render 'edit'
     end

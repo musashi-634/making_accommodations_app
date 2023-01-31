@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  resources :users, except: %i[index destroy], path_names: { new: 'sign_up' } do
+  resource :user, only: %i[new create], path_names: { new: 'sign_up' } do
+    resource :account, only: %i[show edit update], controller: 'users'
     resource :profile, only: %i[show edit update], controller: 'users/profiles'
   end
 

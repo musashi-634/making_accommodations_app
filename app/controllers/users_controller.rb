@@ -8,30 +8,26 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
     if @user.save
+      log_in(@user)
       flash[:notice] = 'ユーザを新規登録しました'
-      redirect_to user_path(@user)
+      redirect_to user_account_path
     else
       flash.now[:alert] = 'ユーザを新規登録できませんでした'
       render 'new'
     end
   end
 
-  def show
-    @user = User.find(params[:id])
-  end
+  def show; end
 
-  def edit
-    @user = User.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @user = User.find(params[:id])
-    @user.assign_attributes(
+    current_user.assign_attributes(
       params.require(:user).permit(:email, :password, :password_confirmation, :password_current)
     )
-    if @user.save(context: :account_update)
+    if current_user.save(context: :account_update)
       flash[:notice] = 'アカウントを更新しました'
-      redirect_to user_path(@user)
+      redirect_to user_account_path
     else
       flash.now[:alert] = 'アカウントを更新できませんでした'
       render 'edit'

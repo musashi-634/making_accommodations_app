@@ -5,28 +5,22 @@
     <p class="alert"><%= flash.now[:alert] %></p>
   <% end %>
 
-  <%= render "shared/error", obj: @user %>
-
-  <div class="my-page-navigator">
-    <ul>
-      <li><%= link_to "アカウント", user_path(@user) %></li>
-      <li><%= link_to "プロフィール", user_profile_path(@user) %></li>
-    </ul>
-  </div>
+  <%= render "shared/error", obj: current_user %>
+  <%= render 'shared/my_page_navigator' %>
 
   <div class="my-page-content-main">
     <div class="my-page-content-main-header">
       <h2>プロフィール</h2>
     </div>
 
-    <%= form_with model: @user, url: user_profile_path do |f| %>
+    <%= form_with model: current_user, url: user_profile_path do |f| %>
       <table>
         <tbody>
           <tr>
             <th><label for="user_avatar">アイコン</label></th>
             <td>
-              <% if @user.avatar.attached? %>
-                <%= image_tag @user.avatar.variant(resize: '100x100^', gravity: "center", crop: "100x100+0+0").processed, class: 'avatar' %>
+              <% if current_user.avatar.attached? %>
+                <%= image_tag current_user.avatar.variant(resize: '100x100^', gravity: "center", crop: "100x100+0+0").processed, class: 'avatar' %>
               <% else %>
                 <%= image_tag 'default_avatar', size: '100x100', class: 'avatar' %>
               <% end %>
@@ -47,7 +41,7 @@
           </tr>
         </tbody>
       </table>
-      <%= link_to "キャンセル", user_profile_path(@user) %>
+      <%= link_to "キャンセル", :back %>
       <%= f.submit "保存" %>
     <% end %>
   </div>
