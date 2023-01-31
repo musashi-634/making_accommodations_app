@@ -17,7 +17,7 @@
       <table>
         <tbody>
           <tr>
-            <th><label for="user_avatar">アイコン</label></th>
+            <th><%= f.label :avatar, 'アイコン' %></th>
             <td>
               <% if current_user.avatar.attached? %>
                 <%= image_tag current_user.avatar.variant(resize: '100x100^', gravity: "center", crop: "100x100+0+0").processed, class: 'avatar' %>
@@ -32,11 +32,11 @@
             </td>
           </tr>
           <tr>
-            <th><label for="user_name">ユーザ名</label></th>
+            <th><%= f.label :name, 'ユーザ名' %></th>
             <td><%= f.text_field :name, placeholder: "ユーザ名を入力してください" %></td>
           </tr>
           <tr>
-            <th><label for="user_introduction">自己紹介</label></th>
+            <th><%= f.label :introduction, '自己紹介' %></th>
             <td><%= f.text_field :introduction, placeholder: "自己紹介を入力してください" %></td>
           </tr>
         </tbody>

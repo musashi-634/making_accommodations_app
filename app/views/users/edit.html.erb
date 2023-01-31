@@ -17,19 +17,19 @@
       <table>
         <tbody>
           <tr>
-            <th><label for="user_email">メールアドレス</label></th>
+            <th><%= f.label :email, 'メールアドレス' %></th>
             <td><%= f.text_field :email, placeholder: "メールアドレスを入力してください"%></td>
           </tr>
           <tr>
-            <th><label for="user_password">変更後パスワード</label></th>
+            <th><%= f.label :password, '変更後パスワード' %></th>
             <td><%= f.text_field :password, placeholder: "変更後パスワードを入力してください"%></td>
           </tr>
           <tr>
-            <th><label for="user_password_confirmation">確認用パスワード</label></th>
+            <th><%= f.label :password_confirmation, '確認用パスワード' %></th>
             <td><%= f.text_field :password_confirmation, placeholder: "変更後パスワードを入力してください"%></td>
           </tr>
           <tr>
-            <th><label for="user_password_current">現在のパスワード</label></th>
+            <th><%= f.label :password_current, '現在のパスワード' %></th>
             <td><%= f.text_field :password_current, placeholder: "現在のパスワードを入力してください"%></td>
           </tr>
         </tbody>
