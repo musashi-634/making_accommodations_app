@@ -19,6 +19,10 @@ header {
   color: white;
 }
 
+.header-wrapper {
+  padding: 5px 0;
+}
+
 .header-outer {
   padding: 0 30px;
   display: flex;
@@ -33,9 +37,76 @@ header {
 }
 
 .header-content-right {
+  position: relative;
+}
+
+.dropdown-menu-checkbox {
+  display: none;
+}
+
+.dropdown-menu-button {
   display: flex;
-  justify-content: space-between;
+  gap: 0 10px;
   align-items: center;
+}
+
+.dropdown-menu-button:hover {
+  cursor: pointer;
+}
+
+.dropdown-menu-button p {
+  margin: 0;
+}
+
+.arrow-bottom {
+  position: relative;
+  padding-right: 20px;
+}
+
+.arrow-bottom p::after {
+  /* 矢印アイコンを作成 */
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-top: solid 2px white;
+  border-right: solid 2px white;
+  /* 矢印アイコンの位置を設定 */
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  transform: translateY(-50%) rotate(135deg);
+}
+
+.dropdown-menu {
+  display: none;
+  margin: 10px 0 0;
+  padding: 5px 10px;
+  width: max-content;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  border: solid 1px gray;
+  background-color: white;
+  color: black;
+}
+
+#dropdown-menu-checkbox:checked~.dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.dropdown-menu li {
+  margin: 5px 0;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: inherit;
 }
 
 footer {
