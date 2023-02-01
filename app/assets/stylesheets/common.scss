@@ -127,3 +127,21 @@ footer {
 .avatar {
   border-radius: 50%;
 }
+
+%button {
+  padding: 10px;
+  border-radius: 10%;
+  text-decoration: none;
+}
+
+.button-blue {
+  @extend %button;
+  background-color: blue;
+  color: white;
+}
+
+.button-darkorange {
+  @extend %button;
+  background-color: darkorange;
+  color: white;
+}
