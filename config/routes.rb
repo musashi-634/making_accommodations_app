@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+
+  resources :rooms, except: :destroy do
+    get :registrations, on: :collection, controller: 'rooms/registrations', action: 'index'
+  end
 end

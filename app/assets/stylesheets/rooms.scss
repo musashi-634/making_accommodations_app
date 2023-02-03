@@ -1,0 +1,24 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.registered-rooms-list {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.registered-rooms-list thead {
+  border-bottom: 1px solid black;
+}
+
+.registered-rooms-list thead th {
+  text-align: left;
+}
+
+.registered-rooms-list tbody tr {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+}
+
+.registered-rooms-list a {
+  text-decoration: none;
+}

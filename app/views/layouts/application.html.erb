@@ -17,8 +17,6 @@
           <div class="header-outer">
             <div class="header-content-left">
               <%= link_to image_tag('app_logo'), root_path %>
-              <p>エリア</p>
-              <p>キーワード</p>
             </div>
             <div class="header-content-right">
               <% if logged_in? %>
@@ -38,9 +36,9 @@
                   <ul>
                     <li>施設関連</li>
                     <ul>
-                      <li>新規登録</li>
+                      <li><%= link_to "新規登録", new_room_path %></li>
                       <li>予約一覧</li>
-                      <li>登録一覧</li>
+                      <li><%= link_to "登録一覧", registrations_rooms_path %></li>
                     </ul>
                     <li><%= link_to "アカウント設定", user_account_path %></li>
                     <li><%= link_to "ログアウト", logout_path, method: :delete %></li>

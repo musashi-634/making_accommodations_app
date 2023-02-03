@@ -145,3 +145,12 @@ footer {
   background-color: darkorange;
   color: white;
 }
+
+.image-150x150 {
+  width: 150px;
+  height: 150px;
+}
+
+.image-contain {
+  object-fit: contain;
+}
