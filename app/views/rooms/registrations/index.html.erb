@@ -15,9 +15,9 @@
       <tr>
         <td>
           <% if room.image.attached? %>
-            <%= link_to image_tag(room.image, class: 'room-image'), room_path(room) %>
+            <%= link_to image_tag(room.image, class: 'image-150x150 image-contain'), room_path(room) %>
           <% else %>
-            <%= link_to image_tag('default_room_image', class: 'room-image'), room_path(room) %>
+            <%= link_to image_tag('default_room_image', class: 'image-150x150 image-contain'), room_path(room) %>
           <% end %>
         </td>
         <td><%= link_to room.name, room_path(room) %></td>
