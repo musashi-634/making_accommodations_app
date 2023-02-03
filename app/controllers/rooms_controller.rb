@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: %i[show edit update destroy]
+  before_action :set_room, only: %i[show edit update]
 
   def index
     @rooms = Room.all
@@ -21,16 +21,19 @@ class RoomsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
-  end
-
-  def destroy
+    if @room.update(params.require(:room).permit(:name, :introduction, :price, :address, :image))
+      flash[:notice] = '施設情報を更新しました'
+      redirect_to room_path(@room)
+    else
+      @room.image = nil if @room.errors[:image]
+      flash.now[:alert] = '施設情報を更新できませんでした'
+      render 'edit'
+    end
   end
 
   private
