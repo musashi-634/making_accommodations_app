@@ -2,7 +2,7 @@ class RoomsController < ApplicationController
   before_action :set_room, only: %i[show edit update]
 
   def index
-    @rooms = Room.all
+    @rooms = Room.search_rooms(params[:address], params[:keyword])
   end
 
   def new
