@@ -2,9 +2,10 @@
   <div class="first-view-outer">
     <div class="first-view-content">
       <h1>Potepan Shareでまだ体験したことのない旅をしよう</h1>
-      <p>エリア</p>
-      <p>東京</p>
-      <p>検索</p>
+      <%= form_with url: rooms_path, method: :get do |f| %>
+        <%= f.search_field :address, placeholder: 'エリア名を入力' %>
+        <%= f.submit '検索' %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -15,19 +16,19 @@
       <h2>おすすめのエリア</h2>
       <ul class="recommended-area-list">
         <li>
-          <%= link_to image_tag('area/img_tokyo'), root_path %>
+          <%= link_to image_tag('area/img_tokyo'), rooms_path(address: '東京') %>
           <p>東京</p>
         </li>
         <li>
-          <%= link_to image_tag('area/img_osaka'), root_path %>
+          <%= link_to image_tag('area/img_osaka'), rooms_path(address: '大阪') %>
           <p>大阪</p>
         </li>
         <li>
-          <%= link_to image_tag('area/img_kyoto'), root_path %>
+          <%= link_to image_tag('area/img_kyoto'), rooms_path(address: '京都') %>
           <p>京都</p>
         </li>
         <li>
-          <%= link_to image_tag('area/img_sapporo'), root_path %>
+          <%= link_to image_tag('area/img_sapporo'), rooms_path(address: '札幌') %>
           <p>札幌</p>
         </li>
       </ul>

@@ -22,3 +22,24 @@
 .registered-rooms-list a {
   text-decoration: none;
 }
+
+.searched-rooms-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.searched-rooms-list>li {
+  background-color: bisque;
+  margin: 20px;
+  width: 350px;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden; // はみ出した子要素を隠す
+}
+
+.searched-rooms-list>li>img {
+  width: 100%;
+  height: 40%;
+}
