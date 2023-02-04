@@ -23,6 +23,17 @@
   text-decoration: none;
 }
 
+.room-search-form {
+  display: flex;
+  justify-content: center;
+  gap: 0 5px;
+}
+
+.room-search-bar {
+  padding: 10px;
+  background-color: gainsboro;
+}
+
 .searched-rooms-list {
   list-style: none;
   display: flex;

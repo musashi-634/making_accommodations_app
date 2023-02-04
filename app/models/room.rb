@@ -11,4 +11,9 @@ class Room < ApplicationRecord
   validates :image, content_type: { in: %w[image/jpeg image/gif image/png],
                                     message: 'は有効なフォーマットではありません' },
                     size: { less_than: 1.megabytes, message: 'のファイルサイズを1MBより小さくしてください' }
+
+  def self.search_rooms(address, keyword)
+    Room.where('address LIKE ?', "%#{address}%")
+        .where('name LIKE ? OR introduction LIKE ?', "%#{keyword}%", "%#{keyword}%")
+  end
 end
