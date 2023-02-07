@@ -18,9 +18,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :reservations, only: %i[index create show] do
-    collection do
-      post :confirm
-    end
+  namespace :reservations do
+    resource :confirmation, only: :create
   end
+  resources :reservations, only: %i[index create]
 end
