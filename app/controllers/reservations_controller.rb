@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   def index
+    @my_reservations = current_user.reservations
   end
 
   def create

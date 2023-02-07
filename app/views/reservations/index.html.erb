@@ -1,5 +1,39 @@
-<h1>Reservations#index</h1>
+<h1>予約済み施設一覧</h1>
 
 <% if flash.now[:notice] %>
   <p class="notice"><%= flash.now[:notice] %></p>
 <% end %>
+
+<table class='reserved-rooms-list'>
+  <thead>
+    <tr>
+      <th>施設画像</th>
+      <th>施設名</th>
+      <th>紹介文</th>
+      <th>合計料金[¥]</th>
+      <th>チェックイン</th>
+      <th>チェックアウト</th>
+      <th>予約確定日時</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @my_reservations.each do |reservation| %>
+      <tr>
+        <td>
+          <% if reservation.room.image.attached? %>
+            <%= link_to image_tag(reservation.room.image, class: 'image-150x150 image-contain'), room_path(reservation.room) %>
+          <% else %>
+            <%= link_to image_tag('default_room_image', class: 'image-150x150 image-contain'), room_path(reservation.room) %>
+          <% end %>
+        </td>
+        <td><%= link_to reservation.room.name, room_path(reservation.room) %></td>
+        <td><%= reservation.room.introduction %></td>
+        <td><%= reservation.calculate_payment.to_s(:delimited) %></td>
+        <td><%= reservation.date_check_in.to_s(:date) %></td>
+        <td><%= reservation.date_check_out.to_s(:date) %></td>
+        <td><%= reservation.updated_at.to_s(:date) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
