@@ -4,14 +4,13 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    @room = Room.find(params[:reservation][:room_id])
     @reservation = Reservation.new(Reservation.reservation_params(params))
-    if @reservation.save
-      flash[:notice] = '施設を予約しました'
-      redirect_to reservations_path
-    else
-      flash.now[:alert] = '施設を予約できませんでした'
-      render 'rooms/show'
-    end
+
+    render 'rooms/show' and return if params[:back] || !@reservation.save
+
+    flash[:notice] = '施設を予約しました'
+    redirect_to reservations_path
   end
 
   def confirm

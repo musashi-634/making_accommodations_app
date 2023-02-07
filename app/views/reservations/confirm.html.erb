@@ -32,13 +32,5 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :room_id, value: @room.id %>
   <%= f.submit '予約を確定' %>
-<% end %>
-
-<%= form_with model: @reservation, url: room_path(@room), method: :get do |f| %>
-  <%= f.hidden_field :date_check_in %>
-  <%= f.hidden_field :date_check_out %>
-  <%= f.hidden_field :person_num %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.hidden_field :room_id, value: @room.id %>
-  <%= f.submit '予約内容を修正' %>
+  <%= f.submit '予約内容を修正', name: :back %>
 <% end %>
