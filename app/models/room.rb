@@ -1,5 +1,9 @@
 class Room < ApplicationRecord
+  # 施設登録のリレーション
   belongs_to :user
+  # 施設予約のリレーション
+  has_many :reservations
+  has_many :users, through: :reservations
 
   validates :name, presence: true
   validates :introduction, presence: true
