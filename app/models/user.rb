@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # 施設登録のリレーション
   has_many :registered_rooms, class_name: 'Room', dependent: :destroy
   # 施設予約のリレーション
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
   has_many :reservated_rooms, through: :reservations, source: :room
 
   # name
