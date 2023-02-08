@@ -12,11 +12,10 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  resources :rooms, except: :destroy do
-    collection do
-      get :registrations, controller: 'rooms/registrations', action: 'index'
-    end
+  namespace :rooms do
+    resources :registrations, only: :index
   end
+  resources :rooms, except: :destroy
 
   namespace :reservations do
     resource :confirmation, only: :create
