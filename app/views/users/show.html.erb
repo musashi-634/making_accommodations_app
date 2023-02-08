@@ -1,29 +1,31 @@
-<div class="my-page-content">
+<div class="my-page-content contents-container">
   <h1>設定</h1>
 
   <% if flash[:notice] %>
     <p class="notice"><%= flash[:notice] %></p>
   <% end %>
 
-  <%= render 'shared/my_page_navigator' %>
+  <div class="my-page-content-container">
+    <%= render 'shared/my_page_navigator' %>
 
-  <div class="my-page-content-main">
-    <div class="my-page-content-main-header">
-      <h2>アカウント</h2>
-      <%= link_to "編集", edit_user_account_path %>
+    <div class="my-page-content-main">
+      <div class="my-page-content-main-header">
+        <h2>アカウント</h2>
+        <%= link_to "編集", edit_user_account_path %>
+      </div>
+
+      <table>
+        <tbody>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= current_user.email %></td>
+          </tr>
+          <tr>
+            <th>パスワード</th>
+            <td>*********</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
-    <table>
-      <tbody>
-        <tr>
-          <th>メールアドレス</th>
-          <td><%= current_user.email %></td>
-        </tr>
-        <tr>
-          <th>パスワード</th>
-          <td>*********</td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </div>

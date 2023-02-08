@@ -116,6 +116,10 @@ footer {
   color: white;
 }
 
+.contents-container {
+  padding: 10px 32px;
+}
+
 .notice {
   background-color: palegreen;
 }
@@ -130,8 +134,10 @@ footer {
 
 %button {
   padding: 10px;
-  border-radius: 10%;
+  border-radius: 10px;
+  border: none;
   text-decoration: none;
+  text-align: center
 }
 
 .button-blue {
@@ -149,6 +155,11 @@ footer {
 .image-150x150 {
   width: 150px;
   height: 150px;
+}
+
+.image-450x300 {
+  width: 450px;
+  height: 300px;
 }
 
 .image-contain {

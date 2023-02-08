@@ -1,51 +1,58 @@
-<% if flash.now[:notice] %>
-  <p class="notice"><%= flash.now[:notice] %></p>
-<% end %>
+<div class="room-detail-content contents-container">
+  <div>
+    <% if flash.now[:notice] %>
+      <p class="notice"><%= flash.now[:notice] %></p>
+    <% end %>
 
-<% if flash.now[:alert] %>
-  <p class="alert"><%= flash.now[:alert] %></p>
-<% end %>
+    <% if flash.now[:alert] %>
+      <div class="alert"><%= flash.now[:alert] %></p>
+    <% end %>
 
-<%= render "shared/error", obj: @reservation %>
+    <%= render "shared/error", obj: @reservation %>
+  </div>
 
-<div class="room-detail-content">
   <div class="room-detail-navigator">
     <p><%= link_to "戻る", :back %></p>
     <% if logged_in? && current_user.id == @room.user_id %>
-      <div><%= link_to "編集", edit_room_path(@room) %></p>
+      <%= link_to "編集", edit_room_path(@room) %>
     <% end %>
   </div>
 
   <div class="room-detail">
     <div class="room-detail-image">
       <% if @room.image.attached? %>
-        <%= link_to image_tag(@room.image, class: 'image-150x150 image-contain'), room_path(@room) %>
+        <%= link_to image_tag(@room.image, class: 'image-450x300 image-cover'), room_path(@room) %>
       <% else %>
-        <%= link_to image_tag('default_room_image', class: 'image-150x150 image-contain'), room_path(@room) %>
+        <%= link_to image_tag('default_room_image', class: 'image-450x300 image-cover'), room_path(@room) %>
       <% end %>
     </div>
 
     <div class="room-detail-text">
-      <p><%= @room.name %></p>
+      <div>
+        <p><%= @room.name %></p>
+        <p>¥<%= @room.price.to_s(:delimited) %>/日</p>
+      </div>
       <p><%= @room.address %></p>
       <p><%= @room.introduction %></p>
-      <p>¥<%= @room.price.to_s(:delimited) %>/日</p>
       <%= form_with model: @reservation, url: reservations_confirmation_path do |f| %>
-        <%= f.label :date_check_in, 'チェックイン' %>
-        <%= f.date_field :date_check_in %>
+        <div>
+          <%= f.label :date_check_in, 'チェックイン' %>
+          <%= f.date_field :date_check_in %>
 
-        <%= f.label :date_check_out, 'チェックアウト' %>
-        <%= f.date_field :date_check_out %>
+          <%= f.label :date_check_out, 'チェックアウト' %>
+          <%= f.date_field :date_check_out %>
 
-        <%= f.label :person_num, '人数' %>
-        <%= f.number_field :person_num, placeholder: '0' %>
+          <%= f.label :person_num, '人数' %>
+          <%= f.number_field :person_num, placeholder: '0' %>
 
         <% if logged_in? %>
-          <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.hidden_field :room_id, value: @room.id %>
-          <%= f.submit '予約する' %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :room_id, value: @room.id %>
+          </div>
+          <div><%= f.submit '予約する', class: 'button-darkorange' %></div>
         <% else %>
-          <%= link_to 'ログイン', login_path %>
+          </div>
+          <div><%= link_to 'ログイン', login_path, class: 'button-darkorange' %></div>
         <% end %>
       <% end %>
     </div>

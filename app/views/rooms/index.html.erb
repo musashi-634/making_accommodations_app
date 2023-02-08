@@ -6,7 +6,7 @@
   <% end %>
 </div>
 
-<div class="searched-rooms-content">
+<div class="searched-rooms-content contents-container">
   <p><%= @rooms.count %>件が見つかりました。</p>
   <ul class="searched-rooms-list">
     <% @rooms.each do |room| %>
@@ -16,11 +16,15 @@
         <% else %>
           <%= image_tag 'default_room_image', class: 'image-cover' %>
         <% end %>
-        <p><%= room.name %></p>
-        <p><%= room.address %></p>
-        <p><%= room.introduction %></p>
-        <p>¥<%= room.price.to_s(:delimited) %>/日</p>
-        <%= link_to '詳細はこちら', room_path(room) %>
+        <div>
+          <div>
+            <p><%= room.name %></p>
+            <p><%= room.address %></p>
+            <p>¥<%= room.price.to_s(:delimited) %>/日</p>
+            <p><%= room.introduction %></p>
+          </div>
+          <%= link_to '詳細はこちら', room_path(room), class: 'button-darkorange' %>
+        </div>
       </li>
     <% end %>
   </ul>

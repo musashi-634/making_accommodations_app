@@ -19,6 +19,10 @@
   border-bottom: 1px solid rgba(128, 128, 128, 0.3);
 }
 
+.registered-rooms-list tbody tr td {
+  max-width: 200px;
+}
+
 .registered-rooms-list a {
   text-decoration: none;
 }
@@ -35,6 +39,7 @@
 }
 
 .searched-rooms-list {
+  padding: 0;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -53,4 +58,74 @@
 .searched-rooms-list>li>img {
   width: 100%;
   height: 40%;
+}
+
+.searched-rooms-list>li>div {
+  height: 60%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.searched-rooms-list>li>div>div {
+  overflow: hidden;
+}
+
+.searched-rooms-list>li>div>a {
+  margin: 10px;
+  display: block;
+}
+
+.searched-rooms-list>li>div>div>p:first-child {
+  margin: 10px 0;
+  font-size: 25px;
+}
+
+.room-detail-navigator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.room-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.room-detail-text {
+  width: 750px;
+  padding: 10px;
+  background-color: bisque;
+}
+
+.room-detail-text>div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.room-detail-text>div:first-child>p {
+  margin: 20px 0;
+  font-size: 30px;
+}
+
+.room-detail-text form {
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px 0;
+}
+
+.room-detail-text form>div:last-child {
+  width: 100%;
+}
+
+.room-detail-text form>div:last-child>input,
+.room-detail-text form>div:last-child>a {
+  display: block;
+  width: 100%;
 }
