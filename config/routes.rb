@@ -13,6 +13,13 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   resources :rooms, except: :destroy do
-    get :registrations, on: :collection, controller: 'rooms/registrations', action: 'index'
+    collection do
+      get :registrations, controller: 'rooms/registrations', action: 'index'
+    end
   end
+
+  namespace :reservations do
+    resource :confirmation, only: :create
+  end
+  resources :reservations, only: %i[index create]
 end

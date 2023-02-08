@@ -25,3 +25,13 @@ ja:
         created_at: 作成日
         updated_at: 更新日
         image: 施設画像
+
+    models:
+      reservation: 予約
+    attributes:
+      reservation:
+        date_check_in: チェックイン日
+        date_check_out: チェックアウト日
+        person_num: 人数
+        created_at: 作成日
+        updated_at: 更新日

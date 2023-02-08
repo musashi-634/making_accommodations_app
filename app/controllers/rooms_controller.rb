@@ -21,7 +21,10 @@ class RoomsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @reservation = Reservation.new
+    @reservation.assign_attributes(Reservation.reservation_params(params)) if params[:reservation]
+  end
 
   def edit; end
 

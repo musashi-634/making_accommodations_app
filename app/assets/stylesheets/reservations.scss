@@ -1,0 +1,24 @@
+// Place all the styles related to the reservations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.reserved-rooms-list {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.reserved-rooms-list thead {
+  border-bottom: 1px solid black;
+}
+
+.reserved-rooms-list thead th {
+  text-align: left;
+}
+
+.reserved-rooms-list tbody tr {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+}
+
+.reserved-rooms-list a {
+  text-decoration: none;
+}
