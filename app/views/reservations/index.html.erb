@@ -32,7 +32,7 @@
         <td><%= reservation.calculate_payment.to_s(:delimited) %></td>
         <td><%= reservation.date_check_in.to_s(:date) %></td>
         <td><%= reservation.date_check_out.to_s(:date) %></td>
-        <td><%= reservation.updated_at.to_s(:date) %></td>
+        <td><%= reservation.updated_at.to_s(:datetime_to_minutes) %></td>
       </tr>
     <% end %>
   </tbody>
