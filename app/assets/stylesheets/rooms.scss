@@ -54,3 +54,52 @@
   width: 100%;
   height: 40%;
 }
+
+.room-detail-navigator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.room-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.room-detail-text {
+  width: 750px;
+  padding: 10px;
+  background-color: bisque;
+}
+
+.room-detail-text>div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.room-detail-text>div:first-child>p {
+  margin: 20px 0;
+  font-size: 30px;
+}
+
+.room-detail-text form {
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px 0;
+}
+
+.room-detail-text form>div:last-child {
+  width: 100%;
+}
+
+.room-detail-text form>div:last-child>input,
+.room-detail-text form>div:last-child>a {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
