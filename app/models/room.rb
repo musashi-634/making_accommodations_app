@@ -1,9 +1,9 @@
 class Room < ApplicationRecord
   # 施設登録のリレーション
-  belongs_to :user
+  belongs_to :owner, class_name: 'User', foreign_key: 'user_id'
   # 施設予約のリレーション
   has_many :reservations
-  has_many :users, through: :reservations
+  has_many :guest, through: :reservations, source: :user
 
   validates :name, presence: true
   validates :introduction, presence: true
