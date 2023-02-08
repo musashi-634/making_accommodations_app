@@ -19,6 +19,10 @@
   border-bottom: 1px solid rgba(128, 128, 128, 0.3);
 }
 
+.registered-rooms-list tbody tr td {
+  max-width: 200px;
+}
+
 .registered-rooms-list a {
   text-decoration: none;
 }

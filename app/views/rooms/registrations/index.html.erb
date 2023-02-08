@@ -1,30 +1,32 @@
-<h1>登録済み施設一覧</h1>
-<table class='registered-rooms-list'>
-  <thead>
-    <tr>
-      <th>施設画像</th>
-      <th>施設名</th>
-      <th>紹介文</th>
-      <th>宿泊料金[¥/日]</th>
-      <th>作成日</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @my_rooms.each do |room| %>
+<div class="registered-rooms-content contents-container">
+  <h1>登録済み施設一覧</h1>
+  <table class='registered-rooms-list'>
+    <thead>
       <tr>
-        <td>
-          <% if room.image.attached? %>
-            <%= link_to image_tag(room.image, class: 'image-150x150 image-contain'), room_path(room) %>
-          <% else %>
-            <%= link_to image_tag('default_room_image', class: 'image-150x150 image-contain'), room_path(room) %>
-          <% end %>
-        </td>
-        <td><%= link_to room.name, room_path(room) %></td>
-        <td><%= room.introduction %></td>
-        <td><%= room.price.to_s(:delimited) %></td>
-        <td><%= room.created_at.to_s(:date) %></td>
+        <th>施設画像</th>
+        <th>施設名</th>
+        <th>紹介文</th>
+        <th>宿泊料金[¥/日]</th>
+        <th>作成日</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @my_rooms.each do |room| %>
+        <tr>
+          <td>
+            <% if room.image.attached? %>
+              <%= link_to image_tag(room.image, class: 'image-150x150 image-contain'), room_path(room) %>
+            <% else %>
+              <%= link_to image_tag('default_room_image', class: 'image-150x150 image-contain'), room_path(room) %>
+            <% end %>
+          </td>
+          <td><%= link_to room.name, room_path(room) %></td>
+          <td><%= room.introduction %></td>
+          <td><%= room.price.to_s(:delimited) %></td>
+          <td><%= room.created_at.to_s(:date) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</di >
