@@ -40,10 +40,13 @@
         <%= f.label :person_num, '人数' %>
         <%= f.number_field :person_num, placeholder: '0' %>
 
-        <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.hidden_field :room_id, value: @room.id %>
-
-        <%= f.submit '予約する' %>
+        <% if logged_in? %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :room_id, value: @room.id %>
+          <%= f.submit '予約する' %>
+        <% else %>
+          <%= link_to 'ログイン', login_path %>
+        <% end %>
       <% end %>
     </div>
   </div>
