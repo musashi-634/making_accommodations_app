@@ -2,6 +2,8 @@ ja:
   activerecord:
     models:
       user: ユーザ
+      room: 施設
+      reservation: 予約
     attributes:
       user:
         name: ユーザ名
@@ -13,10 +15,6 @@ ja:
         created_at: 作成日
         updated_at: 更新日
         avatar: アイコン
-
-    models:
-      room: 施設
-    attributes:
       room:
         name: 施設名
         address: 住所
@@ -25,10 +23,6 @@ ja:
         created_at: 作成日
         updated_at: 更新日
         image: 施設画像
-
-    models:
-      reservation: 予約
-    attributes:
       reservation:
         date_check_in: チェックイン日
         date_check_out: チェックアウト日
