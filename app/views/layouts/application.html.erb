@@ -11,6 +11,51 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <header>
+        <div class="header-wrapper">
+          <div class="header-outer">
+            <div class="header-content-left">
+              <%= link_to image_tag('app_logo'), root_path %>
+            </div>
+            <div class="header-content-right">
+              <% if logged_in? %>
+                <%= check_box_tag 'dropdown-menu-checkbox', true, false, {class: 'dropdown-menu-checkbox'} %>
+
+                <label for='dropdown-menu-checkbox' class='dropdown-menu-button arrow-bottom'>
+                  <% if current_user.avatar.attached? %>
+                    <%= image_tag current_user.avatar.variant(resize: '50x50^', gravity: "center", crop: "50x50+0+0").processed, class: 'avatar' %>
+                  <% else %>
+                    <%= image_tag 'default_avatar', size: '50x50', class: 'avatar' %>
+                  <% end %>
+
+                  <p><%= current_user.name %></p>
+                </label>
+
+                <div class="dropdown-menu">
+                  <ul>
+                    <li>施設関連</li>
+                    <ul>
+                      <li><%= link_to "新規登録", new_room_path %></li>
+                      <li><%= link_to "予約一覧", reservations_path %></li>
+                      <li><%= link_to "登録一覧", rooms_registrations_path %></li>
+                    </ul>
+                    <li><%= link_to "アカウント設定", user_account_path %></li>
+                    <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+                  </ul>
+                </div>
+              <% else %>
+                <%= link_to "ログイン", login_path, {class: 'button-blue'} %>
+                <%= link_to "新規登録", new_user_path, {class: 'button-darkorange'} %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <%= yield %>
+      </main>
+      <footer>© 2023 POTEPAN.INC.</footer>
+    </div>
   </body>
 </html>

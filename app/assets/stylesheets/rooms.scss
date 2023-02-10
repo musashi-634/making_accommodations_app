@@ -1,0 +1,131 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.registered-rooms-list {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.registered-rooms-list thead {
+  border-bottom: 1px solid black;
+}
+
+.registered-rooms-list thead th {
+  text-align: left;
+}
+
+.registered-rooms-list tbody tr {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+}
+
+.registered-rooms-list tbody tr td {
+  max-width: 200px;
+}
+
+.registered-rooms-list a {
+  text-decoration: none;
+}
+
+.room-search-form {
+  display: flex;
+  justify-content: center;
+  gap: 0 5px;
+}
+
+.room-search-bar {
+  padding: 10px;
+  background-color: gainsboro;
+}
+
+.searched-rooms-list {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.searched-rooms-list>li {
+  background-color: bisque;
+  margin: 20px;
+  width: 350px;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden; // はみ出した子要素を隠す
+}
+
+.searched-rooms-list>li>img {
+  width: 100%;
+  height: 40%;
+}
+
+.searched-rooms-list>li>div {
+  height: 60%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.searched-rooms-list>li>div>div {
+  overflow: hidden;
+}
+
+.searched-rooms-list>li>div>a {
+  margin: 10px;
+  display: block;
+}
+
+.searched-rooms-list>li>div>div>p:first-child {
+  margin: 10px 0;
+  font-size: 25px;
+}
+
+.room-detail-navigator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.room-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.room-detail-text {
+  width: 750px;
+  padding: 10px;
+  background-color: bisque;
+}
+
+.room-detail-text>div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.room-detail-text>div:first-child>p {
+  margin: 20px 0;
+  font-size: 30px;
+}
+
+.room-detail-text form {
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px 0;
+}
+
+.room-detail-text form>div:last-child {
+  width: 100%;
+}
+
+.room-detail-text form>div:last-child>input,
+.room-detail-text form>div:last-child>a {
+  display: block;
+  width: 100%;
+}

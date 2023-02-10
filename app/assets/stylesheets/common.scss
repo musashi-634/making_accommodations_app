@@ -1,0 +1,171 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+  min-height: 100vh;
+}
+
+header {
+  background-color: black;
+  color: white;
+}
+
+.header-wrapper {
+  padding: 5px 0;
+}
+
+.header-outer {
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content-left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content-right {
+  position: relative;
+}
+
+.dropdown-menu-checkbox {
+  display: none;
+}
+
+.dropdown-menu-button {
+  display: flex;
+  gap: 0 10px;
+  align-items: center;
+}
+
+.dropdown-menu-button:hover {
+  cursor: pointer;
+}
+
+.dropdown-menu-button p {
+  margin: 0;
+}
+
+.arrow-bottom {
+  position: relative;
+  padding-right: 20px;
+}
+
+.arrow-bottom p::after {
+  /* 矢印アイコンを作成 */
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-top: solid 2px white;
+  border-right: solid 2px white;
+  /* 矢印アイコンの位置を設定 */
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  transform: translateY(-50%) rotate(135deg);
+}
+
+.dropdown-menu {
+  display: none;
+  margin: 10px 0 0;
+  padding: 5px 10px;
+  width: max-content;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  border: solid 1px gray;
+  background-color: white;
+  color: black;
+}
+
+#dropdown-menu-checkbox:checked~.dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.dropdown-menu li {
+  margin: 5px 0;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer {
+  background-color: black;
+  padding: 10px 0;
+  text-align: center;
+  color: white;
+}
+
+.contents-container {
+  padding: 10px 32px;
+}
+
+.notice {
+  background-color: palegreen;
+}
+
+.alert {
+  background-color: lightcoral;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+%button {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  text-decoration: none;
+  text-align: center
+}
+
+.button-blue {
+  @extend %button;
+  background-color: blue;
+  color: white;
+}
+
+.button-darkorange {
+  @extend %button;
+  background-color: darkorange;
+  color: white;
+}
+
+.image-150x150 {
+  width: 150px;
+  height: 150px;
+}
+
+.image-450x300 {
+  width: 450px;
+  height: 300px;
+}
+
+.image-contain {
+  object-fit: contain;
+}
+
+.image-cover {
+  object-fit: cover;
+}

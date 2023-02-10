@@ -1,0 +1,71 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.first-view-wrapper {
+  background-image: image-url('img_cover_first_view.jpeg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 650px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.first-view-outer {
+  padding: 0 10%;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.first-view-content {
+  margin-right: 50%;
+  padding: 5px 20px 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.recommended-area-wrapper {
+  padding: 25px 0;
+}
+
+.recommended-area-outer {
+  padding: 0 8%;
+  width: 100%;
+}
+
+.recommended-area-list {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.recommended-area-list>li {
+  margin: 10px;
+  list-style: none;
+  width: 200px;
+  height: 350px;
+  position: relative;
+}
+
+.recommended-area-list>li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recommended-area-list>li p {
+  margin: 0;
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}

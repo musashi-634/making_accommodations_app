@@ -1,0 +1,51 @@
+<div class="my-page-content  contents-container">
+  <h1>設定</h1>
+
+  <% if flash.now[:alert] %>
+    <p class="alert"><%= flash.now[:alert] %></p>
+  <% end %>
+
+  <%= render "shared/error", obj: current_user %>
+
+  <div class="my-page-content-container">
+    <%= render 'shared/my_page_navigator' %>
+
+    <div class="my-page-content-main">
+      <div class="my-page-content-main-header">
+        <h2>プロフィール</h2>
+      </div>
+
+      <%= form_with model: current_user, url: user_profile_path do |f| %>
+        <table>
+          <tbody>
+            <tr>
+              <th><%= f.label :avatar, 'アイコン' %></th>
+              <td>
+                <% if current_user.avatar.attached? %>
+                  <%= image_tag current_user.avatar.variant(resize: '100x100^', gravity: "center", crop: "100x100+0+0").processed, class: 'avatar' %>
+                <% else %>
+                  <%= image_tag 'default_avatar', size: '100x100', class: 'avatar' %>
+                <% end %>
+
+                <%= f.label :avatar_request_delete, '削除' %>
+                <%= f.check_box :avatar_request_delete, {}, true, false %>
+
+                <%= f.file_field :avatar %>
+              </td>
+            </tr>
+            <tr>
+              <th><%= f.label :name, 'ユーザ名' %></th>
+              <td><%= f.text_field :name, placeholder: "ユーザ名を入力してください" %></td>
+            </tr>
+            <tr>
+              <th><%= f.label :introduction, '自己紹介' %></th>
+              <td><%= f.text_field :introduction, placeholder: "自己紹介を入力してください" %></td>
+            </tr>
+          </tbody>
+        </table>
+        <%= link_to "キャンセル", :back %>
+        <%= f.submit "保存" %>
+      <% end %>
+    </div>
+  </div>
+</div>

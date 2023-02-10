@@ -1,0 +1,39 @@
+<h1>施設情報の編集</h1>
+
+<% if flash.now[:alert] %>
+  <p class="alert"><%= flash.now[:alert] %></p>
+<% end %>
+
+<%= render "shared/error", obj: @room %>
+
+<%= form_with model: @room do |f| %>
+  <table>
+    <tbody>
+      <tr>
+        <th><%= f.label :name, '施設名' %></th>
+        <td><%= f.text_field :name, placeholder: "施設名を入力してください" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :introduction, '施設詳細' %></th>
+        <td><%= f.text_field :introduction, placeholder: "施設詳細を入力してください" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :price, '料金' %></th>
+        <td><%= f.text_field :price, placeholder: "料金を入力してください" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :address, '住所' %></th>
+        <td><%= f.text_field :address, placeholder: "住所を入力してください" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :image, '施設画像' %></th>
+        <td><%= f.file_field :image %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ul>
+    <li><%= f.submit "更新" %></li>
+    <li><%= link_to 'キャンセル', :back %></li>
+  </ul>
+<% end %>

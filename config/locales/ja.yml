@@ -1,0 +1,31 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザ
+      room: 施設
+      reservation: 予約
+    attributes:
+      user:
+        name: ユーザ名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        password_current: 現在のパスワード
+        introduction: 自己紹介
+        created_at: 作成日
+        updated_at: 更新日
+        avatar: アイコン
+      room:
+        name: 施設名
+        address: 住所
+        price: 料金
+        introduction: 施設詳細
+        created_at: 作成日
+        updated_at: 更新日
+        image: 施設画像
+      reservation:
+        date_check_in: チェックイン日
+        date_check_out: チェックアウト日
+        person_num: 人数
+        created_at: 作成日
+        updated_at: 更新日

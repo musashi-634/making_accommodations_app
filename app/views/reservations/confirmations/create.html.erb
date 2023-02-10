@@ -1,0 +1,36 @@
+<h1>予約内容の確認</h1>
+
+<table>
+  <tr>
+    <th>チェックイン</th>
+    <td><%= @reservation.date_check_in.to_s(:date) %></td>
+  </tr>
+  <tr>
+    <th>チェックアウト</th>
+    <td><%= @reservation.date_check_out.to_s(:date) %></td>
+  </tr>
+  <tr>
+    <th>日数</th>
+    <td><%= @reservation.calculate_the_number_of_stays %>日</td>
+  </tr>
+  <tr>
+    <th>人数</th>
+    <td><%= @reservation.person_num %>人</td>
+  </tr>
+  <tr>
+    <th>お支払い金額</th>
+    <td>¥<%= @reservation.calculate_payment.to_s(:delimited) %></td>
+  </tr>
+</table>
+
+<p>上記内容で正しければ「確定」ボタンを押してください。</p>
+
+<%= form_with model: @reservation do |f| %>
+  <%= f.hidden_field :date_check_in %>
+  <%= f.hidden_field :date_check_out %>
+  <%= f.hidden_field :person_num %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :room_id, value: @room.id %>
+  <%= f.submit '予約を確定' %>
+  <%= f.submit '予約内容を修正', name: :back %>
+<% end %>

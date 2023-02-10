@@ -1,0 +1,44 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.my-page-content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.my-page-navigator {
+  width: 200px;
+}
+
+.my-page-navigator ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.my-page-navigator ul li {
+  padding: 10px;
+  border: 1px solid gray;
+}
+
+.my-page-navigator ul li+li {
+  border-top: none;
+}
+
+.my-page-content-main {
+  width: calc(100% - 230px);
+}
+
+.my-page-content-main-header {
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.my-page-content-main-header h2 {
+  margin: 0;
+}
